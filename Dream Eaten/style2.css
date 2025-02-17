@@ -1,0 +1,117 @@
+/* Basic styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #1a1a2e; /* Dark blue color */
+    color: white;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Film page styles */
+.film-page {
+    width: 100%;
+    min-height: 100vh;  /* Ensure the page takes at least the full viewport height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;  /* Align everything from the top */
+    position: relative;
+    background: linear-gradient(to bottom, #1a1a2e, #16213e);
+    color: white;
+    padding-top: 50px;  /* Adds some space from the top */
+    overflow: auto;  /* Allows the page to be scrollable */
+}
+
+/* Title and Subtitle styles */
+.film-header {
+    text-align: center;
+    margin-bottom: 40px;
+    z-index: 10;  /* Ensure title and subtitle are above the video */
+}
+
+.film-title {
+    font-size: 4rem;
+    font-weight: bold;
+    color: cyan;
+    text-shadow: 2px 2px 5px rgba(0, 255, 255, 0.8);
+}
+
+.film-subtitle {
+    font-size: 1.5rem;
+    color: lightgray;
+    margin-top: 10px;
+    opacity: 0.8;
+}
+
+/* Film video section */
+.film-content {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    margin-top: 20px;  /* Adds some space between title and video */
+}
+
+.film-video {
+    width: 100%;
+    max-width: 1200px; /* Limit the width to 1200px */
+    height: auto;  /* Maintain aspect ratio */
+    margin-bottom: 40px;
+}
+
+.film-video iframe {
+    width: 100%;
+    height: auto;  /* Automatically adjust height to maintain 16:9 ratio */
+    aspect-ratio: 16/9;  /* Ensures the video maintains its 16:9 aspect ratio */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+}
+
+/* Credits Section */
+.film-credits {
+    color: lightgray;
+    font-size: 1.2rem;
+    z-index: 10;
+    margin-top: 40px;  /* Adds space between video and credits */
+    padding-bottom: 40px;  /* Adds space at the bottom of the page */
+}
+
+.film-credits h3 {
+    font-size: 2rem;
+    color: cyan;
+    margin-bottom: 10px;
+}
+
+.film-credits ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.film-credits li {
+    margin: 5px 0;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .film-title {
+        font-size: 3rem;
+    }
+    .film-subtitle {
+        font-size: 1.2rem;
+    }
+    .film-video iframe {
+        height: 300px;
+    }
+    .film-credits h3 {
+        font-size: 1.5rem;
+    }
+    .film-credits li {
+        font-size: 1rem;
+    }
+}
+
+
