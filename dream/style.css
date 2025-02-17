@@ -39,7 +39,7 @@ body {
 }
 
 .glitch-text {
-  font-size: 3rem;
+  font-size: 48px;
   font-weight: bold;
   color: white;
   position: absolute;
@@ -105,7 +105,7 @@ body {
 
 @media (max-width: 768px) {
   .glitch-text {
-      font-size: 2rem;
+      font-size: 32px;
   }
 }
 

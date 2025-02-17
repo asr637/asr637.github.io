@@ -31,14 +31,14 @@ body {
 }
 
 .film-title {
-    font-size: 4rem;
+    font-size: 64px;
     font-weight: bold;
     color: cyan;
     text-shadow: 2px 2px 5px rgba(0, 255, 255, 0.8);
 }
 
 .film-subtitle {
-    font-size: 1.5rem;
+    font-size: 24px;
     color: lightgray;
     margin-top: 10px;
     opacity: 0.8;
@@ -81,7 +81,7 @@ body {
 }
 
 .film-credits h3 {
-    font-size: 2rem;
+    font-size: 19px;
     color: cyan;
     margin-bottom: 10px;
 }
@@ -98,19 +98,19 @@ body {
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
     .film-title {
-        font-size: 3rem;
+        font-size: 48px;
     }
     .film-subtitle {
-        font-size: 1.2rem;
+        font-size: 19px;
     }
     .film-video iframe {
         height: 300px;
     }
     .film-credits h3 {
-        font-size: 1.5rem;
+        font-size: 24px;
     }
     .film-credits li {
-        font-size: 1rem;
+        font-size: 16px;
     }
 }
 
