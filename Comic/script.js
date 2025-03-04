@@ -1,6 +1,7 @@
 let currentPanel = 1;
 const totalPanels = 6;
-let firstPanelClickCount = 0;
+let firstPanelClickCount = 0
+let fourthPanelClickCount = 0;
 
 function updatePanel() {
     document.getElementById("panel").src = `page${currentPanel}.png`;
@@ -51,6 +52,23 @@ function handleClick() {
             document.getElementById("speech2").classList.add("visible");
         }
     }
+    if (currentPanel === 4) {
+        fourthPanelClickCount++;
+
+        if (fourthPanelClickCount === 1) {
+            document.getElementById("speech6").classList.remove("hidden");
+            document.getElementById("speech6").classList.add("visible");
+        } else if (fourthPanelClickCount === 2) {
+            document.getElementById("speech7").classList.remove("visible");
+            document.getElementById("speech7").classList.add("hidden");
+            document.getElementById("paper").classList.remove("hidden"); 
+            document.getElementById("paper").style.animation = "tossPaper 1.5s forwards";
+        } else if (fourthPanelClickCount === 3) {
+            document.getElementById("speech8").classList.remove("hidden");
+            document.getElementById("speech8").classList.add("visible");
+        }
+    }
+
 }
 
 window.onload = updatePanel;
