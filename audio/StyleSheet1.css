@@ -160,17 +160,35 @@ html, body {
 }
 
 .play-button {
-    font-size: 100px; /* play arrow size */
-    color: yellow; 
+    font-size: 100px;
+    color: #FFD700;
     cursor: pointer;
+    background: transparent;
+    border: none;
+    outline: none;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
 }
 
 .play-button:hover {
-    color: #ffd700; /*arrow color on hover */
+    color: #ffeb3b;
+    text-shadow: 0 0 20px rgba(255, 235, 59, 0.9);
+    transform: translate(-50%, -50%) scale(1.1);
 }
 
-.glow-circle .play-button {
-    z-index: 1; 
+.glow-circle {
+    background: transparent;
+    box-shadow: none;
 }
 
 .music-input-container {
@@ -474,4 +492,42 @@ html, body {
 .about-page .w3-button:hover {
     background-color: #FFD700;
     color: #000;
+}
+
+// Add these new animations to your CSS
+@keyframes fadeInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-150%) translateY(0);
+    }
+    100% {
+        opacity: 0.9;
+        transform: translateX(-100%) translateY(0);
+    }
+}
+
+@keyframes fadeInFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(150%) translateY(0);
+    }
+    100% {
+        opacity: 0.9;
+        transform: translateX(100%) translateY(0);
+    }
+}
+
+/* Add these to your CSS */
+.left-text, .right-text {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease, visibility 1s ease;
+}
+
+/* Individual animations */
+.left-text {
+    transition-delay: 0.3s;
+}
+.right-text {
+    transition-delay: 0.6s;
 }

@@ -142,3 +142,52 @@ document.addEventListener("DOMContentLoaded", function() {
         updateGlowIntensity(0);
     });
 });
+
+// More precise version with animation sync
+let hasTriggered = false;
+
+// Add this to your Script1.js
+const textTimings = {
+    tomorrow: 117.5, // 1:57 for "tomorrow"
+    isNow: 118.25    // 2:02 for "is now" (5 seconds after)
+};
+
+audio.addEventListener('timeupdate', function() {
+    const leftText = document.querySelector('.left-text');
+    const rightText = document.querySelector('.right-text');
+    
+    // Show "tomorrow" at first timing
+    if (audio.currentTime >= textTimings.tomorrow && 
+        audio.currentTime < textTimings.isNow) {
+        leftText.style.opacity = '1';
+        leftText.style.visibility = 'visible';
+        rightText.style.opacity = '0';
+        rightText.style.visibility = 'hidden';
+    }
+    // Show both at second timing
+    else if (audio.currentTime >= textTimings.isNow) {
+        leftText.style.opacity = '1';
+        leftText.style.visibility = 'visible';
+        rightText.style.opacity = '1';
+        rightText.style.visibility = 'visible';
+    }
+    // Hide both if before first timing
+    else {
+        leftText.style.opacity = '0';
+        leftText.style.visibility = 'hidden';
+        rightText.style.opacity = '0';
+        rightText.style.visibility = 'hidden';
+    }
+});
+
+// Reset when audio restarts
+audio.addEventListener('play', function() {
+    if (audio.currentTime < textTimings.tomorrow) {
+        const sphereTexts = document.querySelectorAll('.sphere-text');
+        sphereTexts.forEach(text => {
+            text.style.opacity = '0';
+            text.style.visibility = 'hidden';
+        });
+    }
+});
+
