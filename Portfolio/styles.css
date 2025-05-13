@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Tahoma&display=swap');
+
+/* General Body Styling */
+body {
+  font-family: 'Tahoma', sans-serif;
+  background-color: #008080;
+  padding: 2rem;
+  color: black;
+}
+
+/* Retro Window Style */
+.window {
+  border: 2px solid #000;
+  background-color: #c0c0c0;
+  margin-bottom: 2rem;
+  box-shadow: 2px 2px #808080;
+  width: 100%;
+  max-width: 600px;
+}
+
+.main-window {
+  margin: 0 auto 3rem auto;
+  max-width: 600px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Title Bar */
+.title-bar {
+  background-color: #000080;
+  color: white;
+  padding: 4px 8px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.title {
+  flex-grow: 1;
+}
+
+/* Window Body */
+.window-body {
+  padding: 1rem;
+  background-color: #dfdfdf;
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+  border-right: 2px solid #808080;
+  border-bottom: 2px solid #808080;
+}
+
+/* Buttons */
+.win-btn {
+  position: relative;
+  transition: all 0.1s ease-in-out;
+}
+
+.win-btn::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: black;
+  transition: width 0.2s ease-in-out;
+}
+
+.win-btn:hover::after {
+  width: 100%;
+}
+
+/* Layout for Assignments */
+.window-section {
+  display: grid;
+  gap: 2rem;
+  justify-content: center;
+}
+
+/* Footer */
+.footer {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+/* Boot Screen */
+#boot-screen {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  color: #0f0;
+  font-family: 'Courier New', monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeOutBoot 3s forwards;
+  animation-delay: 2.5s;
+}
+
+@keyframes fadeOutBoot {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* Loading Bar Animation */
+.loading-bar {
+  margin-top: 1rem;
+  width: 100px;
+  height: 10px;
+  background: #0f0;
+  animation: loading 2s infinite;
+}
+
+@keyframes loading {
+  0% { width: 10px; }
+  50% { width: 100px; }
+  100% { width: 10px; }
+}
+
+/* Window Fade-in Animation */
+.window {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: windowFadeIn 0.8s ease-out forwards;
+}
+
+
+@keyframes windowFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* CRT Effect */
+.crt {
+  position: relative;
+  overflow: hidden;
+}
+
+.crt::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0.02) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  pointer-events: none;
+  z-index: 10;
+  animation: flicker 0.1s infinite;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 0.9; }
+  50% { opacity: 1; }
+}
+
+/* Screen and Button Prompt */
+#loading-screen,
+#enter-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  color: limegreen;
+  font-family: 'Courier New', monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 9999;
+  text-align: center;
+}
+
+.boot-text {
+  white-space: pre-line;
+  font-size: 1.2rem;
+}
+
+/* Button Styles */
+#enter-btn {
+  background: none;
+  border: none;
+  color: limegreen;
+  font-family: 'Courier New', monospace;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0 5px;
+  animation: blink 1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* Remove Outline on Focus */
+#enter-btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Prompt Box */
+.prompt-box {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #c0c0c0;
+  border: 2px solid #000;
+  padding: 20px;
+  font-family: 'Tahoma', sans-serif;
+  text-align: center;
+  z-index: 998;
+  box-shadow: 5px 5px 0 #808080;
+}
+.window-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.window {
+  width: 100%;
+  min-height: 200px;
+  position: relative; /* Changed from absolute for grid layout */
+  margin-bottom: 0; /* Remove bottom margin since gap handles spacing */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: windowFadeIn 0.8s ease-out forwards;
+}
+.footer {
+  margin-top: 3rem;
+  text-align: center;
+  width: 100%;
+  position: relative; /* Changed from absolute */
+  bottom: auto;
+  padding: 1rem 0;
+}
+
+
+/* Add this ONE line to your existing CSS */
+#aboutDialog, #errorDialog { z-index: 9999; }

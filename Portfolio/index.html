@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Retro Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div class="crt">
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+      <div class="boot-text">
+        <div id="boot-screen">
+          <div class="boot-box">
+            <h2>Starting Communications Portfolio...</h2>
+            <p class="loading-bar"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Enter Prompt -->
+    <div id="enter-screen" style="display: none;">
+      <div class="boot-text">
+        Initialization complete.<br><br>
+        <span>Press </span>
+        <button id="enter-btn">ENTER</button>
+        <span> to continue...</span>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-site" style="display: none;">
+      <div class="window main-window">
+        <div class="title-bar">
+          <span class="title">Welcome - My Communications Lab Portfolio</span>
+        </div>
+        <div class="window-body">
+          <p>Hello! I'm <strong>[Aakif Rattu]</strong>, and this is my Portfolio homepage for Communications Lab.</p>
+          <button class="win-btn" onclick="scrollToAssignments()">View Assignments</button>
+          <button class="win-btn" onclick="openAboutMe()">About Me</button>
+          <button class="win-btn" onclick="triggerFakeError()">Crash Me</button>
+        </div>
+      </div>
+
+      <section id="assignments" class="window-section">
+        <div class="window">
+          <div class="title-bar"><span class="title">Assignment 1</span></div>
+          <div class="window-body">
+            <p>Website for 30MFF</p>
+            <a href="https://asr637.github.io/dream" target="_blank">Visit Project</a>
+          </div>
+        </div>
+
+        <div class="window draggable">
+          <div class="title-bar"><span class="title">Assignment 2</span></div>
+          <div class="window-body">
+            <p>Interactive Comic</p>
+            <a href="https://mah9994.github.io/Comic/" target="_blank">Visit Project</a>
+          </div>
+        </div>
+
+        <div class="window draggable">
+          <div class="title-bar"><span class="title">Assignment 3</span></div>
+          <div class="window-body">
+            <p>Audio Assignment</p>
+            <a href="https://asr637.github.io/audio/" target="_blank">Visit Project</a>
+          </div>
+        </div>
+
+        <div class="window draggable">
+          <div class="title-bar"><span class="title">Assignment 4</span></div>
+          <div class="window-body">
+            <p>Film Assignment</p>
+            <a href="https://mustafabakir0.github.io/projects/project4/index.html" target="_blank">Visit Project</a>
+          </div>
+        </div>
+      </section>
+
+      <footer class="window footer">
+        <div class="title-bar"><span class="title">System Info</span></div>
+        <div class="window-body">
+          <p>Designed & Coded by [Aakif Rattu] · Communications Lab · 2025</p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Dialog Windows -->
+    <div id="aboutDialog" class="window" style="display:none; position:absolute; top: 100px; left: 100px;">
+      <div class="title-bar"><span class="title">About Me</span></div>
+      <div class="window-body">
+        <p>Hi! I'm [Aakif], a student and content creator. I'm passionate about streaming, game design, and exploring different forms of digital art. I strive to combine my academic interests with my creative endeavors, particularly focusing on storytelling through various media, including video games, film, and interactive web projects.</p>
+    <p>When I'm not studying or working on my projects, you can usually find me playing competitive games like Valorant, or diving into art and game development. My aim is to create engaging, immersive experiences that resonate with people.</p>
+    <p>In my free time, I enjoy exploring the intersection of art, technology, and culture. I hope my work helps spark conversations about social justice, creativity, and the power of digital spaces.</p>
+        <button class="win-btn" onclick="closeAboutMe()">Close</button>
+      </div>
+    </div>
+
+    <div id="errorDialog" class="window" style="display:none; position:absolute; top: 200px; left: 150px;">
+      <div class="title-bar"><span class="title">System Error</span></div>
+      <div class="window-body">
+        <p><strong>Error 0x800: Retro vibes overload!</strong></p>
+        <button class="win-btn" onclick="closeError()">OK</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
